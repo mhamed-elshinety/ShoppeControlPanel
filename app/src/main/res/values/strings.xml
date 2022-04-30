@@ -4,4 +4,12 @@
     <string name="slogan">Beautiful inside out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hoppe">HOPPE</string>
+    <string name="S">S</string>
+    <string name="search">Search</string>
+    <string name="manage">Manage</string>
+    <string name="add_product">Add product</string>
+    <string name="add_offer">Add offer</string>
+    <string name="qty">QTY:</string>
+    <string name="see_more">See more</string>
 </resources>

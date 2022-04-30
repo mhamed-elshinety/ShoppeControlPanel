@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="search_ed_txt_style" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/shape_edit_text_light</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_height">@dimen/_30sdp</item>
+        <item name="hintTextColor">@color/text_gray</item>
+        <item name="paddingStart">@dimen/_14sdp</item>
+        <item name="paddingEnd">@dimen/_14sdp</item>
+        <item name="singleLine">true</item>
+    </style>
+
+</resources>

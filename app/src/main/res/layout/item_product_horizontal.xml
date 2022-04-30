@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_120sdp"
+    android:layout_margin="@dimen/_6sdp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/product_image_card"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_2sdp"
+        app:cardCornerRadius="@dimen/_11sdp"
+        app:cardElevation="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/product_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/temp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/product_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:fontFamily="@font/dm_sans"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_iv"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/product_image_card"
+        app:layout_constraintTop_toTopOf="@id/product_image_card"
+        tools:text="Lira Earrings" />
+
+    <TextView
+        android:id="@+id/product_mini_description_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/dm_sans"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_iv"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/product_image_card"
+        app:layout_constraintTop_toBottomOf="@id/product_name_tv"
+        tools:text="Black / Medium" />
+
+    <TextView
+        android:id="@+id/product_price_before_discount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/dm_sans"
+        android:textColor="@color/errors"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@id/product_image_card"
+        app:layout_constraintTop_toBottomOf="@id/product_mini_description_tv"
+        tools:text="$ 20.0" />
+
+    <TextView
+        android:id="@+id/product_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:fontFamily="@font/dm_sans"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@id/product_price_before_discount_tv"
+        app:layout_constraintTop_toBottomOf="@id/product_mini_description_tv"
+        tools:text="$ 20.0" />
+
+    <ImageView
+        android:id="@+id/edit_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/dark_gray" />
+
+    <TextView
+        android:id="@+id/quantity_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:fontFamily="@font/dm_sans"
+        android:letterSpacing="0.05"
+        android:text="@string/qty"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/product_image_card" />
+
+    <TextView
+        android:id="@+id/quantity_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:fontFamily="@font/dm_sans"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/quantity_title_tv"
+        tools:text="1" />
+
+    <LinearLayout
+        android:id="@+id/see_more_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/more_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans"
+            android:text="@string/see_more"
+            android:textColor="@color/accent"
+            android:textSize="@dimen/_12ssp" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow"
+            app:tint="@color/accent" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
