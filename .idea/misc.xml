@@ -3,15 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable-hdpi/drawable_light_bd_with_light_boarders.xml" value="0.1215" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable-hdpi/drawable_light_bg_with_light_boarders.xml" value="0.1215" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/add_product.xml" value="0.1415" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/drawable_accent_bd_with_accent_color.xml" value="0.1215" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/drawable_accent_bg_with_accent_boarders.xml" value="0.1215" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/drawable_data_layout_light.xml" value="0.1215" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/drawable_edit_text_dark_with_light_borders.xml" value="0.1215" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/drawable_edit_text_light_with_dark_borders.xml" value="0.5" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/drawable_transparent_light_gray.xml" value="0.1215" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/ic_add.xml" value="0.1215" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/ic_edit.xml" value="0.1215" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/shape_edit_text_light.xml" value="0.1215" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/drawable/vector1.xml" value="0.1" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/font/allerta.xml" value="0.23076923076923078" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout-land/fragment_add_product.xml" value="0.1" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/action_bar.xml" value="0.25" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/activity_main.xml" value="0.16983695652173914" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/activity_splash.xml" value="0.2" />
-        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/fragment_add_product.xml" value="0.22" />
+        <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/item_product_horizontal.xml" value="0.33" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/layout_light_gray_search.xml" value="0.67" />
         <entry key="..\:/MyPC/ShopProjects/ShoppeControlPanel/app/src/main/res/layout/layput_light_gray_search.xml" value="0.25" />

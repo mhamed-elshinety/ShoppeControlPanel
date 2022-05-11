@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +35,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
     private ArrayList<ProductModel> products;
     private boolean isShrink = true;
     private HomeFragmentPresenter presenter;
+    private NavController navController;
+
 
 
     public static HomeFragment newInstance() {
@@ -57,9 +61,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
         initializeFloatingButtons();
         setSavedInstanceStates(savedInstanceState);
         setButtonsSavedState();
-        setClickActions();
         initializePresenter();
+        initializeNavController(view);
+        setClickActions();
         presenter.getProductsList();
+    }
+
+    private void initializeNavController(View view) {
+        navController = Navigation.findNavController(view);
     }
 
 
@@ -75,7 +84,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
             case R.id.extended_float_action_btn:
                 changeButtonsState();
                 break;
+            case R.id.add_product_fab:
+                    navigateToAddProductFragment();
+                break;
         }
+    }
+
+    private void navigateToAddProductFragment() {
+        navController.navigate(R.id.action_homeFragment_to_addProductFragment);
     }
 
     @Override
@@ -126,6 +142,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
 
     private void setClickActions(){
         manageBtn.setOnClickListener(this);
+        addProductFloatingBtn.setOnClickListener(this);
     }
 
     private void changeButtonsState() {
@@ -155,10 +172,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
        addProductTv.setVisibility(View.VISIBLE);
    }
 
-
     private void initializePresenter() {
         this.presenter = new HomeFragmentPresenter(this);
     }
-
 
 }

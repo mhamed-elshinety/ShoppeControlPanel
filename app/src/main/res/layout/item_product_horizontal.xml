@@ -6,6 +6,7 @@
     android:layout_height="@dimen/_120sdp"
     android:layout_margin="@dimen/_6sdp">
 
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/product_image_card"
         android:layout_width="0dp"
@@ -27,7 +28,25 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/product_name_tv"
+        android:id="@+id/label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_16sdp"
+        android:textColor="@color/white"
+        android:background="@drawable/drawable_accent_bg_with_accent_boarders"
+        app:layout_constraintTop_toTopOf="@id/product_image_card"
+        app:layout_constraintStart_toStartOf="@id/product_image_card"
+        android:layout_margin="@dimen/_8sdp"
+        tools:text="- %20"
+        android:textSize="@dimen/_10sdp"
+        android:fontFamily="@font/dm_sans"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:paddingStart="@dimen/_3sdp"
+        android:paddingEnd="@dimen/_3sdp"
+        />
+
+    <TextView
+        android:id="@+id/product_name_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_6sdp"
@@ -52,7 +71,7 @@
         app:layout_constraintEnd_toStartOf="@+id/edit_iv"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/product_image_card"
-        app:layout_constraintTop_toBottomOf="@id/product_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/product_name_et"
         tools:text="Black / Medium" />
 
     <TextView
@@ -69,7 +88,7 @@
         tools:text="$ 20.0" />
 
     <TextView
-        android:id="@+id/product_price_tv"
+        android:id="@+id/product_price_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_6sdp"
@@ -146,6 +165,5 @@
             app:tint="@color/accent" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

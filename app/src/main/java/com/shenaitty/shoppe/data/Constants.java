@@ -14,4 +14,12 @@ public class Constants {
     public static final String MAKEUP = "Makeup";
     public static final String OTHER = "Other" ;
     public static final String NA = "N/A";
+    public static final String LOG_TAG = "SHOPPE:";
+    public static final String IMAGE_URI = "image uri";
+
+    public static final String PRODUCTS = "Products";
+    public static final String PRODUCTS_IMAGES = "Products Images";
+
 }
+
+

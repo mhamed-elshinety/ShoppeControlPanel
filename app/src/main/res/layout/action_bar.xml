@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_40sdp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/s_tv"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:letterSpacing="0.2"
+        android:text="@string/S"
+        android:textColor="@color/accent"
+        android:textSize="@dimen/_21ssp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/S"
-        android:fontFamily="@font/allerta_stencil"
-        android:textSize="@dimen/_21ssp"
-        android:textColor="@color/accent"
-        android:letterSpacing="0.2"
-        android:textStyle="bold"
-        />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/s_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hoppe"
         android:fontFamily="@font/allerta_stencil"
-        android:textSize="@dimen/_21ssp"
+        android:text="@string/hoppe"
         android:textColor="@color/black"
+        android:textSize="@dimen/_21ssp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/s_tv"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
         android:id="@+id/action_bar_iv"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:tint="@color/dark_gray"
-        app:layout_constraintTop_toTopOf="@id/s_tv"
+        android:src="@drawable/close"
         app:layout_constraintBottom_toBottomOf="@id/s_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/close"
-        />
+        app:layout_constraintTop_toTopOf="@id/s_tv"
+        app:tint="@color/dark_gray"
+        android:contentDescription="@string/app_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

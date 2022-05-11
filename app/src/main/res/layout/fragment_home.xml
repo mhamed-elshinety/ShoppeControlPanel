@@ -26,10 +26,12 @@
         android:layout_marginBottom="@dimen/_14sdp"
         android:backgroundTint="@color/accent"
         android:fontFamily="@font/dm_sans"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_16sdp"
         android:text="@string/manage"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_12sdp"
         app:icon="@drawable/ic_edit"
         app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,26 +42,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_14sdp"
-        app:backgroundTint="@color/accent"
         android:contentDescription="@string/add_product"
         android:src="@drawable/ic_add"
+        app:backgroundTint="@color/accent"
         app:layout_constraintBottom_toTopOf="@id/extended_float_action_btn"
         app:layout_constraintEnd_toEndOf="@id/extended_float_action_btn"
-        app:tint="@android:color/white"
-        />
+        app:tint="@android:color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_offer_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_14sdp"
-        app:backgroundTint="@color/accent"
         android:contentDescription="@string/add_product"
         android:src="@drawable/ic_add"
+        app:backgroundTint="@color/accent"
         app:layout_constraintBottom_toTopOf="@id/add_product_fab"
         app:layout_constraintEnd_toEndOf="@id/extended_float_action_btn"
-        app:tint="@android:color/white"
-         />
+        app:tint="@android:color/white" />
 
     <TextView
         android:id="@+id/add_product_tv"
@@ -67,6 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
         android:fontFamily="@font/dm_sans"
+        android:paddingStart="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_4sdp"
         android:text="@string/add_product"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/_11sdp"
@@ -80,6 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_8sdp"
         android:fontFamily="@font/dm_sans"
+        android:paddingStart="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_4sdp"
         android:text="@string/add_offer"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/_11sdp"
@@ -95,8 +99,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_layout" />
-
+        app:layout_constraintTop_toBottomOf="@id/search_layout"
+        tools:listitem="@layout/item_product_horizontal"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
