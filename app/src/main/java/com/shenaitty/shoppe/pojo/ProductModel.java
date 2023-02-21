@@ -3,12 +3,21 @@ package com.shenaitty.shoppe.pojo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.shenaitty.shoppe.data.Constants;
 import com.shenaitty.shoppe.listeners.OnGetProductsListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProductModel {
+public class ProductModel implements Serializable {
     private String id, name, description, category, moreInfo, shipperName, imageUrl;
     private float price, discount, widthInCM, lengthInCM,heightInCM;
     private int quantity;
@@ -155,7 +164,34 @@ public class ProductModel {
 
     public void getProductsList(){
         //TODO: Getting data from API
-        onGetProductsListener.onGettingProducts(getDummyData());
+        FirebaseDatabase database = FirebaseDatabase.getInstance(Constants.DATABASE_LINK);
+        DatabaseReference reference = database.getReference().child(Constants.PRODUCTS);
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                onGetProductsListener.onGetProduct(snapshot.getValue(ProductModel.class));
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private ArrayList<ProductModel> getDummyData(){

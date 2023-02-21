@@ -1,6 +1,6 @@
 package com.shenaitty.shoppe.adapters;
 
-import android.content.Context;
+import  android.content.Context;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.shenaitty.shoppe.R;
 import com.shenaitty.shoppe.data.Assistant;
 import com.shenaitty.shoppe.data.Constants;
+import com.shenaitty.shoppe.listeners.OnEditClickListener;
+import com.shenaitty.shoppe.listeners.OnSeeMoreClickListener;
 import com.shenaitty.shoppe.pojo.ProductModel;
+import com.shenaitty.shoppe.ui.HomeFragment;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,9 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
     public ProductsRecAdapter(ArrayList<ProductModel> products){
         setProducts(products);
     }
+
+    private OnSeeMoreClickListener onSeeMoreListener;
+    private OnEditClickListener onEditClickListener;
 
 
     @NonNull
@@ -57,7 +63,14 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
         setProductPrice(holder, currProduct.getPrice(),currProduct.getDiscount());
         setQuantity(holder,currProduct.getQuantity());
         setLabel(holder,currProduct.getDiscount(),currProduct.getQuantity(),currProduct.getCategory());
+    }
 
+    public void setOnSeeMoreClickListener(OnSeeMoreClickListener onSeeMoreClickListener) {
+        this.onSeeMoreListener = onSeeMoreClickListener;
+    }
+
+    public void setOnEditClickListener(OnEditClickListener onEditClickListener) {
+        this.onEditClickListener = onEditClickListener;
     }
 
     private void setProducts(ArrayList<ProductModel> products) {
@@ -120,7 +133,7 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
         }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView productNameTv, priceBeforeDiscountTv, productPriceTv, miniInfoTv, quantityTv, labelTv;
         private LinearLayout seeMoreLinearLayout;
         private ImageView editIv;
@@ -139,6 +152,8 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
             labelTv = view.findViewById(R.id.label_tv);
             seeMoreLinearLayout = view.findViewById(R.id.see_more_linear_layout);
             editIv = view.findViewById(R.id.edit_iv);
+            seeMoreLinearLayout.setOnClickListener(v-> onSeeMoreListener.onSeeMoreClickListener(getAdapterPosition()));
+            editIv.setOnClickListener(v-> onEditClickListener.OnEditClick(getAdapterPosition()));
         }
     }
 }

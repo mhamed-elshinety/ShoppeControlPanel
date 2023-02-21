@@ -20,6 +20,10 @@ public class Constants {
     public static final String PRODUCTS = "Products";
     public static final String PRODUCTS_IMAGES = "Products Images";
 
+    public static final String DATABASE_LINK = "https://shoppe-b4884-default-rtdb.europe-west1.firebasedatabase.app/";
+    public static final String IMG_STORAGE_MAIN_PATH = "gs://shoppe-b4884.appspot.com/Products Images/";
+
+    public static final String PRODUCT = "product" ;
 }
 
 

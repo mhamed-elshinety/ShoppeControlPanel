@@ -28,7 +28,7 @@ public class HomeFragmentPresenter implements OnGetProductsListener {
     }
 
     @Override
-    public void onGettingProducts(ArrayList<ProductModel> productModels) {
-        view.onGettingProducts(productModels);
+    public void onGetProduct(ProductModel productModel) {
+        view.onGetProduct(productModel);
     }
 }

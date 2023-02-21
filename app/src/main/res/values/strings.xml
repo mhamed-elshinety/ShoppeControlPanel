@@ -30,4 +30,12 @@
     <string name="error_msg_1">Something went wrong, please try again later</string>
     <string name="no_image_selected">No image selected</string>
     <string name="something_went_wrong">Something went wrong, please check your data and try agaim later</string>
+    <string name="product">Product</string>
+    <string name="share">Share</string>
+    <string name="add_to_cart">add to cart</string>
+    <string name="edit">Edit</string>
+    <string name="view_more">View more</string>
+    <string name="description">Description</string>
+    <string name="temp_desc_1">Water Resistant and no charging required. Lock and unlock your smart phone or tablet quickly, hide the app when you leave your smart phone alone. Control applications, you can write a fixed process list ahead of the time, and the ring will start the applications each time by simply touch. Share and transfer information, support all Android and Windows NFC mobiles. Multi-functional NFC smart ring, the main function is to store and exce personal information, as well as mobile content and personal privacy encryption unlock. Functions: set up smart lock, card recharge, smart phone unlock, phone important file lock, transfer files.</string>
+    <string name="additional_information">Additional information</string>
 </resources>

@@ -23,30 +23,31 @@ public class AddProductFragmentPresenter {
 
     public AddProductFragmentPresenter(AddProductFragmentView view, Activity activity) {
         setView(view);
-        this.activity = activity;
+        setActivity(activity);
     }
 
     private void setView(AddProductFragmentView view) {
         this.view = view;
     }
 
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
     public void addProductToDatabase(ProductModel product, Uri productImageUri) {
         if (productImageUri != null & product != null) {
             String imageName = getUniqueImageName(productImageUri);
             FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference imagesRef = storage.getReference().child("Products Images");
+            StorageReference imagesRef = storage.getReference().child(Constants.PRODUCTS_IMAGES);
             imagesRef.child(imageName)
                     .putFile(productImageUri).addOnSuccessListener(taskSnapshot -> {
-                product.setImageUrl("gs://shoppe-b4884.appspot.com/Products Images/" + imageName);
-                FirebaseDatabase database = FirebaseDatabase
-                        .getInstance("https://shoppe-b4884-default-rtdb.europe-west1.firebasedatabase.app/");
+                product.setImageUrl(Constants.IMG_STORAGE_MAIN_PATH + imageName);
+                FirebaseDatabase database = FirebaseDatabase.getInstance(Constants.DATABASE_LINK);
                 DatabaseReference productReference = database.getReference(Constants.PRODUCTS);
                 productReference.push().setValue(product)
                         .addOnSuccessListener(unused -> view.onAddProductResponse(true))
                         .addOnFailureListener(e -> view.onAddProductResponse(false));
-            }).addOnFailureListener(e -> {
-                Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show();
-            });
+            }).addOnFailureListener(e -> Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show());
         }else{
             Toast.makeText(activity,activity.getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
         }

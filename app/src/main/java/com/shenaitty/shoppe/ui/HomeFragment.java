@@ -19,11 +19,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shenaitty.shoppe.R;
 import com.shenaitty.shoppe.adapters.ProductsRecAdapter;
 import com.shenaitty.shoppe.data.Constants;
+import com.shenaitty.shoppe.listeners.OnEditClickListener;
+import com.shenaitty.shoppe.listeners.OnSeeMoreClickListener;
 import com.shenaitty.shoppe.pojo.ProductModel;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements View.OnClickListener, HomeFragmentView {
+public class HomeFragment extends Fragment implements View.OnClickListener, HomeFragmentView, OnSeeMoreClickListener, OnEditClickListener {
 
     //TODO: Caching data
 
@@ -32,10 +34,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
     private TextView addProductTv, addOfferTv;
     private RecyclerView productRecView;
 
+    private ProductsRecAdapter adapter;
     private ArrayList<ProductModel> products;
     private boolean isShrink = true;
     private HomeFragmentPresenter presenter;
     private NavController navController;
+
 
 
 
@@ -58,13 +62,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         defineViews(view);
+        defineFields();
         initializeFloatingButtons();
         setSavedInstanceStates(savedInstanceState);
         setButtonsSavedState();
         initializePresenter();
         initializeNavController(view);
+        initializeProductRecView();
         setClickActions();
         presenter.getProductsList();
+    }
+
+    private void defineFields() {
+        products = new ArrayList<>();
+        adapter = new ProductsRecAdapter(this.products);
     }
 
     private void initializeNavController(View view) {
@@ -94,15 +105,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
         navController.navigate(R.id.action_homeFragment_to_addProductFragment);
     }
 
+    private void navigateToProductInformationFragment(ProductModel product){
+        Bundle productBnd = new Bundle();
+        productBnd.putSerializable(Constants.PRODUCT, product);
+        navController.navigate(R.id.action_homeFragment_to_productInformationFragment, productBnd);
+    }
+
     @Override
-    public void onGettingProducts(ArrayList<ProductModel> products) {
-        setProducts(products);
-        initializeProductRecView();
+    public void onGetProduct(ProductModel product) {
+        products.add(product);
+        adapter.notifyItemInserted(products.size()-1);
+        adapter.notifyDataSetChanged();
     }
 
     private void initializeProductRecView() {
-        productRecView.setAdapter(new ProductsRecAdapter(this.products));
+        productRecView.setAdapter(adapter);
         productRecView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        adapter.setOnSeeMoreClickListener(this);
+        adapter.setOnEditClickListener(this);
     }
 
     private void setProducts(ArrayList<ProductModel> products) {
@@ -176,4 +196,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
         this.presenter = new HomeFragmentPresenter(this);
     }
 
+    @Override
+    public void onSeeMoreClickListener(int position) {
+        ProductModel product =  products.get(position);
+        navigateToProductInformationFragment(product);
+    }
+
+    @Override
+    public void OnEditClick(int position) {
+
+    }
 }

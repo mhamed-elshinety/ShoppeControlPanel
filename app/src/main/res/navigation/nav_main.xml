@@ -18,9 +18,20 @@
             app:enterAnim="@anim/anim_bottom_nav"
             app:exitAnim="@anim/anim_fade_out"
             />
+        <action
+            android:id="@+id/action_homeFragment_to_productInformationFragment"
+            app:destination="@id/productInformationFragment"
+            app:popEnterAnim="@anim/anim_fade_in"
+            app:popExitAnim="@anim/anim_top_nav"
+            app:enterAnim="@anim/anim_bottom_nav"
+            app:exitAnim="@anim/anim_fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/addProductFragment"
         android:name="com.shenaitty.shoppe.ui.AddProductFragment"
         android:label="AddProductFragment" />
+    <fragment
+        android:id="@+id/productInformationFragment"
+        android:name="com.shenaitty.shoppe.ui.ProductInformationFragment"
+        android:label="ProductInformationFragment" />
 </navigation>
