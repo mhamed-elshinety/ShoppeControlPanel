@@ -24,6 +24,7 @@ public class Constants {
     public static final String IMG_STORAGE_MAIN_PATH = "gs://shoppe-b4884.appspot.com/Products Images/";
 
     public static final String PRODUCT = "product" ;
+    public static final String VU_MORE = "view more";
 }
 
 

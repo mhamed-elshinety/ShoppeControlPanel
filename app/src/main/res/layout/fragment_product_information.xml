@@ -108,6 +108,8 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipisce elit. Aliquam placerat ..."
             android:textColor="@color/dark_gray"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

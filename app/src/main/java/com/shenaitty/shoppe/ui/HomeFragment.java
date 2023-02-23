@@ -20,12 +20,12 @@ import com.shenaitty.shoppe.R;
 import com.shenaitty.shoppe.adapters.ProductsRecAdapter;
 import com.shenaitty.shoppe.data.Constants;
 import com.shenaitty.shoppe.listeners.OnEditClickListener;
-import com.shenaitty.shoppe.listeners.OnSeeMoreClickListener;
+import com.shenaitty.shoppe.listeners.OnItemClickListener;
 import com.shenaitty.shoppe.pojo.ProductModel;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements View.OnClickListener, HomeFragmentView, OnSeeMoreClickListener, OnEditClickListener {
+public class HomeFragment extends Fragment implements View.OnClickListener, HomeFragmentView, OnEditClickListener, OnItemClickListener {
 
     //TODO: Caching data
 
@@ -121,8 +121,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
     private void initializeProductRecView() {
         productRecView.setAdapter(adapter);
         productRecView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        adapter.setOnSeeMoreClickListener(this);
         adapter.setOnEditClickListener(this);
+        adapter.setOnItemClickListener(this);
     }
 
     private void setProducts(ArrayList<ProductModel> products) {
@@ -197,13 +197,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Home
     }
 
     @Override
-    public void onSeeMoreClickListener(int position) {
-        ProductModel product =  products.get(position);
-        navigateToProductInformationFragment(product);
+    public void OnEditClick(int position) {
+        Bundle productBundle = new Bundle();
+        productBundle.putSerializable(Constants.PRODUCT,products.get(position));
+        navController.navigate(R.id.action_homeFragment_to_editProductFragment,productBundle);
     }
 
     @Override
-    public void OnEditClick(int position) {
-
+    public void onItemClick(int position) {
+        ProductModel product =  products.get(position);
+        navigateToProductInformationFragment(product);
     }
 }

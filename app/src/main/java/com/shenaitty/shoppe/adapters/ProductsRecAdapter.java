@@ -16,9 +16,8 @@ import com.shenaitty.shoppe.R;
 import com.shenaitty.shoppe.data.Assistant;
 import com.shenaitty.shoppe.data.Constants;
 import com.shenaitty.shoppe.listeners.OnEditClickListener;
-import com.shenaitty.shoppe.listeners.OnSeeMoreClickListener;
+import com.shenaitty.shoppe.listeners.OnItemClickListener;
 import com.shenaitty.shoppe.pojo.ProductModel;
-import com.shenaitty.shoppe.ui.HomeFragment;
 
 import java.util.ArrayList;
 
@@ -29,10 +28,8 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
     public ProductsRecAdapter(ArrayList<ProductModel> products){
         setProducts(products);
     }
-
-    private OnSeeMoreClickListener onSeeMoreListener;
     private OnEditClickListener onEditClickListener;
-
+    private OnItemClickListener onItemClickListener;
 
     @NonNull
     @Override
@@ -65,8 +62,9 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
         setLabel(holder,currProduct.getDiscount(),currProduct.getQuantity(),currProduct.getCategory());
     }
 
-    public void setOnSeeMoreClickListener(OnSeeMoreClickListener onSeeMoreClickListener) {
-        this.onSeeMoreListener = onSeeMoreClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
     public void setOnEditClickListener(OnEditClickListener onEditClickListener) {
@@ -152,8 +150,8 @@ public class ProductsRecAdapter extends RecyclerView.Adapter<ProductsRecAdapter.
             labelTv = view.findViewById(R.id.label_tv);
             seeMoreLinearLayout = view.findViewById(R.id.see_more_linear_layout);
             editIv = view.findViewById(R.id.edit_iv);
-            seeMoreLinearLayout.setOnClickListener(v-> onSeeMoreListener.onSeeMoreClickListener(getAdapterPosition()));
             editIv.setOnClickListener(v-> onEditClickListener.OnEditClick(getAdapterPosition()));
+            view.setOnClickListener(v-> onItemClickListener.onItemClick(getAdapterPosition()));
         }
     }
 }
