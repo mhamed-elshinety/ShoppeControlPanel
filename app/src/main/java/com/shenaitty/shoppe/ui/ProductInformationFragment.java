@@ -1,13 +1,7 @@
 package com.shenaitty.shoppe.ui;
 
+import android.graphics.Paint;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,19 +10,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import com.shenaitty.shoppe.R;
+import com.shenaitty.shoppe.data.Assistant;
 import com.shenaitty.shoppe.data.Constants;
 import com.shenaitty.shoppe.pojo.ProductModel;
 
 public class ProductInformationFragment extends Fragment implements ProductInformationFragmentView, View.OnClickListener {
 
-    private ImageView productIV, shareIV;
-    private TextView productNameTV, productPriceTV,editProductTV,productInfoTV, descriptionTV, additionalInfoTV;
+    private ImageView productIV;
+    private TextView productNameTV, productPriceTV,editProductTV,productInfoTV, descriptionTV,
+            additionalInfoTV, priceBeforeDiscountTV;
     private LinearLayout viewMoreLayout;
     private ProductModel product;
     boolean isViewMoreExpanded = false;
     private NavController navController;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +67,6 @@ public class ProductInformationFragment extends Fragment implements ProductInfor
 
     private void defineViews(View view){
         productIV = view.findViewById(R.id.product_iv);
-        shareIV = view.findViewById(R.id.share_btn);
         productNameTV = view.findViewById(R.id.product_name_tv);
         productPriceTV = view.findViewById(R.id.product_price_tv);
         editProductTV = view.findViewById(R.id.edit_tv);
@@ -74,6 +74,7 @@ public class ProductInformationFragment extends Fragment implements ProductInfor
         descriptionTV = view.findViewById(R.id.description_tv);
         viewMoreLayout = view.findViewById(R.id.view_more_linear_layout);
         additionalInfoTV = view.findViewById(R.id.additional_info_tv);
+        priceBeforeDiscountTV = view.findViewById(R.id.product_price_before_discount_tv);
     }
     private void defineFields() {
         product = (ProductModel) getArguments().getSerializable(Constants.PRODUCT);
@@ -86,11 +87,22 @@ public class ProductInformationFragment extends Fragment implements ProductInfor
             productNameTV.setText(product.getName());
             productInfoTV.setText(product.getMoreInfo());
             descriptionTV.setText(product.getDescription());
-            productPriceTV.setText(""+product.getPrice());
+            setPriceBeforeDiscount(product.getPrice(),product.getDiscount());
+            setPrice(product.getPrice(),product.getDiscount());
         }
-
     }
 
+    private void setPriceBeforeDiscount(double price, double discount) {
+        if(discount>0){
+            priceBeforeDiscountTV.setText(Assistant.formatDecimal(2,price));
+            priceBeforeDiscountTV.setPaintFlags(priceBeforeDiscountTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        }else
+            priceBeforeDiscountTV.setVisibility(View.GONE);
+    }
+
+    private void setPrice(double price, double discount){
+        productPriceTV.setText(Assistant.formatDecimal(2,price-price*(discount/100)));
+    }
 
     @Override
     public void onClick(View v) {
@@ -128,4 +140,5 @@ public class ProductInformationFragment extends Fragment implements ProductInfor
         outState.putBoolean(Constants.VU_MORE,isViewMoreExpanded);
         Log.d(Constants.LOG_TAG, "onSaveInstanceState:" + isViewMoreExpanded);
     }
+
 }
